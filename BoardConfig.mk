@@ -12,15 +12,12 @@ ALLOW_MISSING_DEPENDENCIES := true
 
 # A/B
 AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
+AB_OTA_PARTITIONS ?= \
     boot \
     recovery \
+    vendor_boot \
     dtbo \
     vbmeta \
-    vbmeta_system \
-    system \
-    system_ext \
-    product \
     vendor \
     vendor_dlkm \
     odm
@@ -79,10 +76,10 @@ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Partition - Super
-BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
+BOARD_SUPER_PARTITION_SIZE := 6442450944 # TODO: Fix hardcoded value
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := vendor vendor_dlkm odm
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 6438256640  # BOARD_SUPER_PARTITION_SIZE - 4MB
 
 # Platform
 TARGET_BOARD_PLATFORM := taro
