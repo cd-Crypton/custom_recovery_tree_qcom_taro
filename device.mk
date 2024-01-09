@@ -68,6 +68,12 @@ RECOVERY_LIBRARY_SOURCE_FILES += \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
     $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 
+# Set GRF/Vendor freeze properties
+BOARD_SHIPPING_API_LEVEL := 31
+BOARD_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
+SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
+PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
+
 # Userdata checkpoint
 PRODUCT_PACKAGES += \
     checkpoint_gc
@@ -81,3 +87,12 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+# Update Script
+PRODUCT_PACKAGES += \
+    otapreopt_script \
+    cppreopts.sh
+
+# VNDK/SDK
+PRODUCT_TARGET_VNDK_VERSION := $(BOARD_SHIPPING_API_LEVEL)
+BOARD_SYSTEMSDK_VERSIONS := $(BOARD_SHIPPING_API_LEVEL)
