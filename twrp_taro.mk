@@ -26,5 +26,6 @@ PRODUCT_NAME := twrp_taro
 PRODUCT_BRAND := qcom
 PRODUCT_MODEL := taro for arm64
 PRODUCT_MANUFACTURER := qcom
+PRODUCT_PLATFORM := taro
 
 PRODUCT_GMS_CLIENTID_BASE := android-qcom
