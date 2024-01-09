@@ -33,6 +33,10 @@ PRODUCT_PACKAGES += \
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# fastboot/d HAL
+PRODUCT_PACKAGES += fastbootd
+PRODUCT_PACKAGES += android.hardware.fastboot@1.1-impl-mock
+
 # Enable Fuse Passthrough
 PRODUCT_PROPERTY_OVERRIDES += persist.sys.fuse.passthrough.enable=true
 
